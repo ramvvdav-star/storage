@@ -276,6 +276,7 @@ export async function ensureSchemaBootstrapped(): Promise<boolean> {
           "sections_json" text,
           "description" text,
           "question_ids_json" text NOT NULL,
+          "test_data_json" text,
           "test_questions_json" text NOT NULL DEFAULT '[]',
           "attempt_snapshots_json" text NOT NULL DEFAULT '[]',
           "active_attempt_set" text NOT NULL DEFAULT 'Set A',
@@ -390,6 +391,7 @@ export async function ensureSchemaBootstrapped(): Promise<boolean> {
         ALTER TABLE "tests" ADD COLUMN IF NOT EXISTS "blueprint_id" text;
         ALTER TABLE "tests" ADD COLUMN IF NOT EXISTS "pattern_source" text;
         ALTER TABLE "tests" ADD COLUMN IF NOT EXISTS "test_questions_json" text NOT NULL DEFAULT '[]';
+        ALTER TABLE "tests" ADD COLUMN IF NOT EXISTS "test_data_json" text;
         ALTER TABLE "tests" ADD COLUMN IF NOT EXISTS "attempt_snapshots_json" text NOT NULL DEFAULT '[]';
         ALTER TABLE "tests" ADD COLUMN IF NOT EXISTS "active_attempt_set" text NOT NULL DEFAULT 'Set A';
         ALTER TABLE "test_attempts" ADD COLUMN IF NOT EXISTS "course_id" text NOT NULL DEFAULT 'course_jee';
